@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>登录</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- jquery -->
+	<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+	<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<!-- jquery-validator -->
+	<script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+	<script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+	<!-- layer -->
+	<script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+	<!-- md5.js -->
+	<script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+	<!-- common.js -->
+	<script type="text/javascript" th:src="@{/js/common.js}"></script>
+
+	<style type="text/css">
+		html,body{
+			height:100%;
+			width:100%;
+		}
+		body{
+			background:url('/img/bg.jpg') no-repeat;
+			background-size:100% 100%;
+			padding-top:100px;
+		}
+	</style>
+
+</head>
+<body>
+
+
+<div class="row" style="margin-top:40px;">
+	<div class="col-md-6">
+		<button class="btn btn-primary btn-block" type="submit" onclick="login()">登录</button>
+	</div>
+</div>
+
+</body>
+</html>
+<script>
+	function login(){
+		$.ajax({
+			url: "convert",
+			data: "1-wangyunfei", //后台处理按此格式，用'-'隔开
+			type:"POST",
+			contentType:"application/x-wisely", //设置媒体类型为自定义的application/x-wisely
+			success: function(data){
+				$("#resp").html(data);
+			}
+		});
+
+	}
+	</script>
